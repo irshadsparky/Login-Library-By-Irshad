@@ -28,7 +28,7 @@ import irshad.sheikh.loginlibrary.vollyrequest.VollyRequestSimpleLoginClass;
 import irshad.sheikh.loginlibrary.vollyrequest.VollyRequestSimpleSignup;
 
 
-public class MainActivity extends AppCompatActivity implements SmartLoginCallbacks {
+public class TestLibraryActivity extends AppCompatActivity implements SmartLoginCallbacks {
 
     private Button facebookLoginButton, googleLoginButton, customSigninButton, customSignupButton, logoutButton;
     private EditText emailEditText, passwordEditText;
@@ -152,10 +152,10 @@ public class MainActivity extends AppCompatActivity implements SmartLoginCallbac
                     } else {
                         smartLogin = SmartLoginFactory.build(LoginType.CustomLogin);
                     }
-                    boolean result = smartLogin.logout(MainActivity.this);
+                    boolean result = smartLogin.logout(TestLibraryActivity.this);
                     if (result) {
                         refreshLayout();
-                        Toast.makeText(MainActivity.this, "User logged out successfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TestLibraryActivity.this, "User logged out successfully", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
