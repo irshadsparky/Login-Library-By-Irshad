@@ -24,7 +24,7 @@ public class CustomLogin extends SmartLogin {
         Map<String, String> user = config.getCallback().doCustomLogin();
         vollyRequestSimpleLoginClass.setParams(user);
         vollyRequestSimpleLoginClass.setVolleyRequestResponce(config.getCallback());
-        vollyRequestSimpleLoginClass.Start();
+        vollyRequestSimpleLoginClass.Start(config.getActivity());
       /*  if (user != null) {
             // Save the user
 //            UserSessionManager.setUserSession(config.getActivity(), user);
@@ -57,7 +57,7 @@ public class CustomLogin extends SmartLogin {
         Map<String, String> user = config.getCallback().doCustomSignup();
         vollyRequestSimpleLoginClass.setParams(user);
         vollyRequestSimpleLoginClass.setVolleyRequestResponce(config.getCallback());
-        vollyRequestSimpleLoginClass.Start();
+        vollyRequestSimpleLoginClass.Start(config.getActivity());
     }
 
     @Override

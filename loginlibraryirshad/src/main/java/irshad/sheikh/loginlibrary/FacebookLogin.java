@@ -5,7 +5,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.facebook.CallbackManager;
@@ -37,7 +36,9 @@ import irshad.sheikh.loginlibrary.vollyrequest.VollyRequestSimpleSignup;
 public class FacebookLogin extends SmartLogin {
 
     private CallbackManager callbackManager;
+
     public FacebookLogin() {
+
         //Facebook login callback
         callbackManager = CallbackManager.Factory.create();
     }
@@ -49,7 +50,7 @@ public class FacebookLogin extends SmartLogin {
     }
 
     @Override
-    public void facebook(SmartLoginConfig config, final VolleyRequestFacebook vollyRequestSimpleLoginClass) {
+    public void facebook(final SmartLoginConfig config, final VolleyRequestFacebook vollyRequestSimpleLoginClass) {
         vollyRequestSimpleLoginClass.setVolleyRequestResponce(config.getCallback());
         final Activity activity = config.getActivity();
         final SmartLoginCallbacks callback = config.getCallback();
@@ -71,7 +72,7 @@ public class FacebookLogin extends SmartLogin {
                         // Save the user
                         UserSessionManager.setUserSession(activity, facebookUser);
                         vollyRequestSimpleLoginClass.setParams(callback.onFacebookLoginSuccess(facebookUser));
-                        vollyRequestSimpleLoginClass.Start();
+                        vollyRequestSimpleLoginClass.Start(config.getActivity());
                     }
                 });
                 request.executeAsync();

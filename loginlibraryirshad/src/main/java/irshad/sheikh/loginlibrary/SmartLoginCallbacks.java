@@ -1,12 +1,9 @@
 package irshad.sheikh.loginlibrary;
 
-import com.android.volley.VolleyError;
-
 import java.util.Map;
 
 import irshad.sheikh.loginlibrary.users.SmartFacebookUser;
 import irshad.sheikh.loginlibrary.users.SmartGoogleUser;
-import irshad.sheikh.loginlibrary.users.SmartUser;
 import irshad.sheikh.loginlibrary.util.SmartLoginException;
 
 /**
@@ -17,8 +14,11 @@ import irshad.sheikh.loginlibrary.util.SmartLoginException;
 public interface SmartLoginCallbacks {
 
     void onLoginSuccess(String user);
+
     void onSignupSuccess(String user);
+
     Map<String, String> onFacebookLoginSuccess(SmartFacebookUser user);
+
     Map<String, String> onGoogleLoginSuccess(SmartGoogleUser user);
 
     void onLoginFailure(SmartLoginException e);

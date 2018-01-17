@@ -25,6 +25,14 @@ public class SmartLoginConfig {
         this.callback = callback;
     }
 
+    public static ArrayList<String> getDefaultFacebookPermissions() {
+        ArrayList<String> defaultPermissions = new ArrayList<>();
+        defaultPermissions.add("public_profile");
+        defaultPermissions.add("email");
+        defaultPermissions.add("user_birthday");
+        return defaultPermissions;
+    }
+
     public Activity getActivity() {
         return activity;
     }
@@ -55,14 +63,6 @@ public class SmartLoginConfig {
 
     public void setFacebookPermissions(ArrayList<String> facebookPermissions) {
         this.facebookPermissions = facebookPermissions;
-    }
-
-    public static ArrayList<String> getDefaultFacebookPermissions() {
-        ArrayList<String> defaultPermissions = new ArrayList<>();
-        defaultPermissions.add("public_profile");
-        defaultPermissions.add("email");
-        defaultPermissions.add("user_birthday");
-        return defaultPermissions;
     }
 
 }

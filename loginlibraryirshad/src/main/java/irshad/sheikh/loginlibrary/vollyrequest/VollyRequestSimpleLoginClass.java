@@ -1,5 +1,6 @@
 package irshad.sheikh.loginlibrary.vollyrequest;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.android.volley.DefaultRetryPolicy;
@@ -10,7 +11,6 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.StringRequest;
 
 import java.util.Map;
-
 
 import irshad.sheikh.loginlibrary.LoginType;
 import irshad.sheikh.loginlibrary.SmartLoginCallbacks;
@@ -23,11 +23,11 @@ import irshad.sheikh.loginlibrary.util.SmartLoginException;
  */
 
 public class VollyRequestSimpleLoginClass {
-    String tag_json_obj = "json_obj_req";
-    String TAG = "VollyRequestSimpleLoginClass";
     public String Url;
     public Map<String, String> params;
     public SmartLoginCallbacks volleyRequestResponce;
+    String tag_json_obj = "json_obj_req";
+    String TAG = "VollyRequestSimpleLoginClass";
 
     public String getUrl() {
         return Url;
@@ -53,7 +53,7 @@ public class VollyRequestSimpleLoginClass {
         this.volleyRequestResponce = volleyRequestResponce;
     }
 
-    public void Start() {
+    public void Start(Context context) {
         if (Url != null && Url.length() > 0) {
             final StringRequest stringRequest = new StringRequest(Request.Method.POST,
                     Url,
@@ -87,12 +87,10 @@ public class VollyRequestSimpleLoginClass {
                     DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
 // Adding request to request queue
-            ApplicationUtils.getInstance().
+            ApplicationUtils.getInstance(context);
 
-                    addToRequestQueue(stringRequest, tag_json_obj);
-        }
-        else
-        {
+            ApplicationUtils.addToRequestQueue(stringRequest, tag_json_obj);
+        } else {
             volleyRequestResponce.onLoginFailure(new SmartLoginException("Please Add Url", LoginType.CustomLogin));
         }
     }

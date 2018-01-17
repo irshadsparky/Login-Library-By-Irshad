@@ -18,17 +18,17 @@ import irshad.sheikh.loginlibrary.util.Constants;
 public class UserSessionManager {
 
     /**
-        This static method can be called to get the logged in user.
-        It reads from the shared preferences and builds a SmartUser object and returns it.
-        If no user is logged in it returns null
-    */
-    public static SmartUser getCurrentUser(Context context){
+     * This static method can be called to get the logged in user.
+     * It reads from the shared preferences and builds a SmartUser object and returns it.
+     * If no user is logged in it returns null
+     */
+    public static SmartUser getCurrentUser(Context context) {
         SmartUser smartUser = null;
         SharedPreferences preferences = context.getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String sessionUser = preferences.getString(Constants.USER_SESSION, Constants.DEFAULT_SESSION_VALUE);
         String user_type = preferences.getString(Constants.USER_TYPE, Constants.CUSTOMUSERFLAG);
-        if(!sessionUser.equals(Constants.DEFAULT_SESSION_VALUE)){
+        if (!sessionUser.equals(Constants.DEFAULT_SESSION_VALUE)) {
             try {
                 switch (user_type) {
                     case Constants.FACEBOOKFLAG:
@@ -41,7 +41,7 @@ public class UserSessionManager {
                         smartUser = gson.fromJson(sessionUser, SmartUser.class);
                         break;
                 }
-            }catch (Exception e){
+            } catch (Exception e) {
                 Log.e("GSON", e.getMessage());
             }
         }
@@ -49,14 +49,14 @@ public class UserSessionManager {
     }
 
     /**
-        This method sets the session object for the current logged in user.
-        This is called from inside the SmartLoginActivity to save the
-        current logged in user to the shared preferences.
-    */
-    static boolean setUserSession(Context context, SmartUser smartUser){
+     * This method sets the session object for the current logged in user.
+     * This is called from inside the SmartLoginActivity to save the
+     * current logged in user to the shared preferences.
+     */
+    static boolean setUserSession(Context context, SmartUser smartUser) {
         SharedPreferences preferences;
         SharedPreferences.Editor editor;
-        if(smartUser != null) {
+        if (smartUser != null) {
             try {
                 preferences = context.getSharedPreferences(Constants.USER_PREFS, Context.MODE_PRIVATE);
                 editor = preferences.edit();

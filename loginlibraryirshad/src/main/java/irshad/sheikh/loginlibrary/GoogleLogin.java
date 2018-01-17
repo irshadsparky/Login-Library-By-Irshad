@@ -30,6 +30,7 @@ import irshad.sheikh.loginlibrary.vollyrequest.VollyRequestSimpleSignup;
 
 public class GoogleLogin extends SmartLogin {
     VolleyRequestGoogle vollyRequestSimpleLoginClass;
+
     @Override
     public void login(@NonNull SmartLoginConfig config, VollyRequestSimpleLoginClass vollyRequestSimpleLoginClass) {
 
@@ -42,7 +43,7 @@ public class GoogleLogin extends SmartLogin {
 
     @Override
     public void google(SmartLoginConfig config, VolleyRequestGoogle vollyRequestSimpleLoginClass) {
-        this.vollyRequestSimpleLoginClass=vollyRequestSimpleLoginClass;
+        this.vollyRequestSimpleLoginClass = vollyRequestSimpleLoginClass;
         GoogleApiClient apiClient = config.getGoogleApiClient();
         Activity activity = config.getActivity();
 
@@ -97,7 +98,7 @@ public class GoogleLogin extends SmartLogin {
             // Save the user
             UserSessionManager.setUserSession(config.getActivity(), googleUser);
             vollyRequestSimpleLoginClass.setParams(config.getCallback().onGoogleLoginSuccess(googleUser));
-            vollyRequestSimpleLoginClass.Start();
+            vollyRequestSimpleLoginClass.Start(config.getActivity());
             progress.dismiss();
         } else {
 //            vollyRequestSimpleLoginClass.getVolleyRequestResponce().onLoginFailure(new SmartLoginException("requestCode-->"+requestCode,LoginType.Google));

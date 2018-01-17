@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:width="36dp"
     android:height="36dp"
-    android:viewportWidth="24"
     android:viewportHeight="24"
+    android:viewportWidth="24"
     tools:targetApi="lollipop">
 
     <path

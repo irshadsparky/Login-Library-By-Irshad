@@ -8,5 +8,6 @@ import com.android.volley.VolleyError;
 
 public interface VolleyRequestResponce {
     void onResponse(String response);
+
     void onErrorResponse(VolleyError response);
 }

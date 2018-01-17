@@ -1,13 +1,9 @@
 package irshad.sheikh.loginlibrary.util;
 
-import android.app.Activity;
 import android.util.Log;
 
 import com.facebook.AccessToken;
-import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.GoogleApiClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,7 +18,7 @@ import irshad.sheikh.loginlibrary.users.SmartUser;
  */
 public class UserUtil {
 
-    public static SmartGoogleUser populateGoogleUser(GoogleSignInAccount account){
+    public static SmartGoogleUser populateGoogleUser(GoogleSignInAccount account) {
         //Create a new google user
         SmartGoogleUser googleUser = new SmartGoogleUser();
         //populate the user
@@ -41,7 +37,7 @@ public class UserUtil {
         return googleUser;
     }
 
-    public static SmartFacebookUser populateFacebookUser(JSONObject object, AccessToken accessToken){
+    public static SmartFacebookUser populateFacebookUser(JSONObject object, AccessToken accessToken) {
         SmartFacebookUser facebookUser = new SmartFacebookUser();
         facebookUser.setGender(-1);
         facebookUser.setAccessToken(accessToken);
@@ -78,19 +74,19 @@ public class UserUtil {
                 facebookUser.setMiddleName(object.getString(Constants.FacebookFields.MIDDLE_NAME));
             if (object.has(Constants.FacebookFields.LAST_NAME))
                 facebookUser.setLastName(object.getString(Constants.FacebookFields.LAST_NAME));
-        } catch (JSONException e){
+        } catch (JSONException e) {
             Log.e("UserUtil", e.getMessage());
             facebookUser = null;
         }
         return facebookUser;
     }
 
-    public static SmartUser populateCustomUser(String username, String email, String userId){
+    public static SmartUser populateCustomUser(String username, String email, String userId) {
         SmartUser user = new SmartUser();
         user.setEmail(email);
         user.setUsername(username);
         user.setUserId(userId);
         return user;
     }
-
+//git push -f origin master
 }

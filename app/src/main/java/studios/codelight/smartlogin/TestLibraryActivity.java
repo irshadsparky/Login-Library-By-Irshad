@@ -30,16 +30,12 @@ import irshad.sheikh.loginlibrary.vollyrequest.VollyRequestSimpleSignup;
 
 public class TestLibraryActivity extends AppCompatActivity implements SmartLoginCallbacks {
 
-    private Button facebookLoginButton, googleLoginButton, customSigninButton, customSignupButton, logoutButton;
-    private EditText emailEditText, passwordEditText;
     SmartUser currentUser;
     //GoogleApiClient mGoogleApiClient;
     SmartLoginConfig config;
     SmartLogin smartLogin;
-
-
-
-
+    private Button facebookLoginButton, googleLoginButton, customSigninButton, customSignupButton, logoutButton;
+    private EditText emailEditText, passwordEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +117,7 @@ public class TestLibraryActivity extends AppCompatActivity implements SmartLogin
             public void onClick(View v) {
                 // Perform custom sign in
 //validation here
-                VollyRequestSimpleLoginClass   vollyRequestSimpleLoginClass=new VollyRequestSimpleLoginClass();
+                VollyRequestSimpleLoginClass vollyRequestSimpleLoginClass = new VollyRequestSimpleLoginClass();
                 smartLogin = SmartLoginFactory.build(LoginType.CustomLogin);
                 vollyRequestSimpleLoginClass.setUrl("http://coimbossengineers.com/ohana_api/webservice.php");
                 smartLogin.login(config, vollyRequestSimpleLoginClass);
@@ -187,9 +183,9 @@ public class TestLibraryActivity extends AppCompatActivity implements SmartLogin
     @Override
     public Map<String, String> onFacebookLoginSuccess(SmartFacebookUser user) {
         Map<String, String> map = new HashMap<>();
-        map.put("action","login");
-        map.put("email",""+user.getEmail());
-        map.put("password",""+user.getProfileName());
+        map.put("action", "login");
+        map.put("email", "" + user.getEmail());
+        map.put("password", "" + user.getProfileName());
         Toast.makeText(this, user.getProfileName(), Toast.LENGTH_SHORT).show();
         refreshLayout();
         return map;
@@ -198,9 +194,9 @@ public class TestLibraryActivity extends AppCompatActivity implements SmartLogin
     @Override
     public Map<String, String> onGoogleLoginSuccess(SmartGoogleUser user) {
         Map<String, String> map = new HashMap<>();
-        map.put("action","login");
-        map.put("email",""+user.getEmail());
-        map.put("password",""+user.getDisplayName());
+        map.put("action", "login");
+        map.put("email", "" + user.getEmail());
+        map.put("password", "" + user.getDisplayName());
         Toast.makeText(this, user.getDisplayName(), Toast.LENGTH_SHORT).show();
         refreshLayout();
         return map;
@@ -213,21 +209,21 @@ public class TestLibraryActivity extends AppCompatActivity implements SmartLogin
 
     @Override
     public Map<String, String> doCustomLogin() {
-       // parameter:action=login,email,password
+        // parameter:action=login,email,password
         Map<String, String> map = new HashMap<>();
-        map.put("action","login");
-        map.put("email",""+emailEditText.getText().toString());
-        map.put("password",""+passwordEditText.getText().toString());
+        map.put("action", "login");
+        map.put("email", "" + emailEditText.getText().toString());
+        map.put("password", "" + passwordEditText.getText().toString());
         return map;
     }
 
     @Override
     public Map<String, String> doCustomSignup() {
         Map<String, String> map = new HashMap<>();
-        map.put("action","register");
-        map.put("name","nameone");
-        map.put("email",""+emailEditText.getText().toString());
-        map.put("password",""+passwordEditText.getText().toString());
+        map.put("action", "register");
+        map.put("name", "nameone");
+        map.put("email", "" + emailEditText.getText().toString());
+        map.put("password", "" + passwordEditText.getText().toString());
         return map;
     }
 

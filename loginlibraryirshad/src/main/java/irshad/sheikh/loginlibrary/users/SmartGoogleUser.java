@@ -42,36 +42,36 @@ public class SmartGoogleUser extends SmartUser {
     }
 
     @Override
-    public void setEmail(String email) {
-        Email = email;
-    }
-
-    @Override
     public String getEmail() {
         return Email;
     }
 
-    public void setId(String id) {
-        Id = id;
+    @Override
+    public void setEmail(String email) {
+        Email = email;
     }
 
     public String getId() {
         return Id;
     }
 
-    public void setGivenName(String givenName) {
-        GivenName = givenName;
+    public void setId(String id) {
+        Id = id;
     }
 
     public String getGivenName() {
         return GivenName;
     }
 
-    public void setFamilyName(String familyName) {
-        FamilyName = familyName;
+    public void setGivenName(String givenName) {
+        GivenName = givenName;
     }
 
     public String getFamilyName() {
         return FamilyName;
+    }
+
+    public void setFamilyName(String familyName) {
+        FamilyName = familyName;
     }
 }

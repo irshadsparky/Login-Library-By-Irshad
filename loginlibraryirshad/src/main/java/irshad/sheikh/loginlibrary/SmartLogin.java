@@ -16,7 +16,9 @@ import irshad.sheikh.loginlibrary.vollyrequest.VollyRequestSimpleSignup;
 public abstract class SmartLogin {
 
     public abstract void login(SmartLoginConfig config, VollyRequestSimpleLoginClass vollyRequestSimpleLoginClass);
+
     public abstract void facebook(SmartLoginConfig config, VolleyRequestFacebook vollyRequestSimpleLoginClass);
+
     public abstract void google(SmartLoginConfig config, VolleyRequestGoogle vollyRequestSimpleLoginClass);
 
     public abstract void signup(SmartLoginConfig config, VollyRequestSimpleSignup vollyRequestSimpleLoginClass);

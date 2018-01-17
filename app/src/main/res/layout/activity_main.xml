@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -24,8 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:background="@color/white"
         android:layout_margin="16dp"
+        android:background="@color/white"
         card_view:cardCornerRadius="4dp"
         card_view:cardElevation="8dp">
 
@@ -54,26 +55,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
 
                 <Button
                     android:id="@+id/custom_signin_button"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
                     android:tag="custom_login_button"
-                    android:text="@string/sign_in" />
+                    android:text="@string/sign_in"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/custom_signup_button"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
                     android:tag="custom_signup_button"
-                    android:text="@string/sign_up_button" />
+                    android:text="@string/sign_up_button"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
@@ -89,30 +90,30 @@
                     android:layout_height="0dp"
                     android:layout_marginBottom="4dp"
                     android:layout_weight="1"
-                    android:tag="facebook_login_button"
                     android:drawableLeft="@drawable/ic_facebook_white_36dp"
                     android:drawableStart="@drawable/ic_facebook_white_36dp"
-                    android:textColor="@color/white"
-                    android:text="@string/sign_in_facebook" />
+                    android:tag="facebook_login_button"
+                    android:text="@string/sign_in_facebook"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/google_login_button"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:tag="google_login_button"
                     android:drawableLeft="@drawable/ic_google_plus_white_36dp"
                     android:drawableStart="@drawable/ic_google_plus_white_36dp"
-                    android:textColor="@color/white"
-                    android:text="@string/sign_in_google" />
+                    android:tag="google_login_button"
+                    android:text="@string/sign_in_google"
+                    android:textColor="@color/white" />
 
                 <Button
                     android:id="@+id/logout_button"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:textColor="@color/white"
-                    android:text="@string/logout_text" />
+                    android:text="@string/logout_text"
+                    android:textColor="@color/white" />
 
             </LinearLayout>
 
